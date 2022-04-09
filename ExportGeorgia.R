@@ -50,7 +50,7 @@ fig1 <- ggplot2::ggplot(ExportByCoutry, aes(Year, ThsdUSD1000, color = Code, gro
                             caption = "",
                             x = "",
                             y = "ათასი აშშ დოლარი")+
-                       annotate("text", label = "ჩინეთი", x = 2020.3, y = 570000, size = 3.5, colour = "Black", family="Sylfaen", angle = 50)+
+                       annotate("text", label = "ჩინეთი", x = 2020.3, y = 570000, size = 3.5, colour = "Black", family="Sylfaen", angle = 46)+
                        annotate("text", label = "რუსეთი", x = 2016.26, y = 320000, size = 3.5, colour = "Black", family="Sylfaen", angle = 55)+
                        annotate("text", label = "აზერბაიჯანი", x = 2011, y = 500000, size = 3.5, colour = "Black", family="Sylfaen", angle = 54)+
                        annotate("text", label = "რუსეთ-საქართველოს ომი შემდეგ საქართველოდ რუსეთში ექსპორტის მზარდ ტენდენციას ინარჩუნებს (ერთეული:$)\nსაქართველოდან ექსპორტის ყველაზე დიდი მიმღები ჩინეთის შემდეგ რუსეთია (2021 წელი)\nექსპორტის ექვსი ყველაზე დიდი მიმართულებიდან სამში რუსეთს 25%-ზე მეტს იკავებს (2021 წელი)" ,
