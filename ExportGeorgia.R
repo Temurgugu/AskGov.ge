@@ -38,23 +38,21 @@ fig1 <- ggplot2::ggplot(ExportByCoutry, aes(Year, ThsdUSD1000, color = Code, gro
                        geom_point(data = ExportByCoutry %>% filter(Year == "2021", Code != "4სხვა ქვეყნები")) +
                        theme_minimal(base_family="Sylfaen") +
                        theme(plot.caption = element_text(size=10, colour="black", hjust=0),
-                             plot.subtitle = element_text(size=15, colour="red", hjust=0),
-                             plot.title = element_text(size=20, colour="black", hjust=0),
+                             plot.title = element_text(size=20, colour="#035f8a", hjust=0.5),
                              axis.title.x = element_blank(),
                              legend.position = "None") +
                        scale_color_manual(values=c("#FFD400", "#DB0D20", "#00B5E2", "#808080"))+
                        scale_x_continuous(breaks=c(1995, 1999, 2003, 2008, 2012, 2016, 2021))+
                        scale_y_continuous(breaks=seq(0, 800000, 200000), limits = c(0, 800000), labels = scales::comma)+
                        labs(title = "საგარეო ვაჭრობა: ექსპორტი საქართველოდან",
-                            subtitle ="სამ სექტორში ექსპორტის 25%-ზე მეტი უკუპირებულია",
                             caption = "",
                             x = "",
                             y = "ათასი აშშ დოლარი")+
                        annotate("text", label = "ჩინეთი", x = 2020.3, y = 570000, size = 3.5, colour = "Black", family="Sylfaen", angle = 46)+
                        annotate("text", label = "რუსეთი", x = 2016.26, y = 320000, size = 3.5, colour = "Black", family="Sylfaen", angle = 55)+
                        annotate("text", label = "აზერბაიჯანი", x = 2011, y = 500000, size = 3.5, colour = "Black", family="Sylfaen", angle = 54)+
-                       annotate("text", label = "რუსეთ-საქართველოს ომი შემდეგ საქართველოდ რუსეთში ექსპორტის მზარდ ტენდენციას ინარჩუნებს (ერთეული:$)\nსაქართველოდან ექსპორტის ყველაზე დიდი მიმღები ჩინეთის შემდეგ რუსეთია (2021 წელი)\nექსპორტის ექვსი ყველაზე დიდი მიმართულებიდან სამში რუსეთს 25%-ზე მეტს იკავებს (2021 წელი)" ,
-                                 x = 1995, y = 700000, size = 3.5, colour = "Black", hjust = 0, family="Sylfaen")
+                       annotate("text", label = "რუსეთ-საქართველოს ომის შემდეგ რუსეთში ექსპორტი მზარდ ტენდენციას ინარჩუნებს (ერთეული:$)\nსაქართველოდან ექსპორტის ყველაზე დიდი მიმღები ჩინეთის შემდეგ რუსეთია (2021 წელი)\nექსპორტის ექვსი ყველაზე დიდი მიმართულებიდან სამში რუსეთი 25%-ზე მეტს იკავებს (2021 წელი)",
+                                 x = 1995, y = 700000, size = 3.5, colour = "#0277ad", hjust = 0, family="Sylfaen")
 
 
 fig2 <- ggplot(ExportByHS, aes(Year, Percentage, group=CodeRussia, fill=CodeRussia, color = CodeRussia)) +
@@ -63,14 +61,15 @@ fig2 <- ggplot(ExportByHS, aes(Year, Percentage, group=CodeRussia, fill=CodeRuss
                theme_minimal(base_family="Sylfaen") +
                theme(legend.position="none",
                      axis.title.x = element_blank(),
-                     plot.subtitle = element_text(size=10, colour="black", hjust=0.5))+
+                     plot.subtitle = element_text(size=15, colour="#8a0303", hjust=0.5))+
                scale_x_continuous(breaks=seq(2009, 2021, 12))+
                scale_y_continuous(labels = scales::percent, trans = "reverse") +
                scale_fill_manual(values=c("#808080", "#8a0303"))+
                scale_color_manual(values=c("#808080", "#8a0303"))+
                facet_wrap(vars(HS),  ncol = 6, labeller = label_wrap_gen())+
                labs(caption = "წყარო: საქსტატის საგარეო ვაჭრობის პორტალი \nავტორი: თემურ გუგუშვილი",
-                    x = "",
+                    subtitle ="ექსპორტის სამ სექტორში 25%-ზე მეტია ოკუპირებული რუსეთის მიერ",
+                     x = "",
                     y = "")
 
 
