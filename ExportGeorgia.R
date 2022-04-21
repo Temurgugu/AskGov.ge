@@ -74,7 +74,7 @@ fig2 <- ggplot(ExportByHS, aes(Year, Percentage, group=CodeRussia, fill=CodeRuss
 
 
 ggsave("Visualization/ExportGeorgia.png", 
-       grid.arrange(fig1, fig2, nrow = 2),  
+       grid.arrange(fig1, fig2),  
       
        width =35, 
        height = 20, 
