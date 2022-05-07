@@ -50,12 +50,13 @@ fig1 <- ggplot2::ggplot(ExportByCoutry, aes(Year, ThsdUSD1000, color = Code, gro
   scale_x_continuous(breaks=c(1995, 1999, 2003, 2008, 2012, 2016, 2021), limits = c(1995, 2021)) +
   scale_y_continuous(breaks=seq(0, 800000, 200000), limits = c(0, 800000), labels = scales::comma)+
   labs(title = "საგარეო ვაჭრობა: <span style = 'color:#DB0D20'>რუსეთი</span> საქართველოს ექსპორტის ოკუპანტი?!",
+       subtitle = "",
        caption = "",
        x = "",
        y = "ათასი აშშ დოლარი")+
-  annotate("text", label = "ჩინეთი", x = 2020.3, y = 570000, size = 3.5, colour = "Black", family="Sylfaen", angle = 46)+
-  annotate("text", label = "რუსეთი", x = 2016.26, y = 320000, size = 3.5, colour = "Black", family="Sylfaen", angle = 55)+
-  annotate("text", label = "აზერბაიჯანი", x = 2011, y = 500000, size = 3.5, colour = "Black", family="Sylfaen", angle = 54)
+  annotate("text", label = "ჩინეთი", x = 2020.15, y = 570000, size = 3.5, colour = "Black", family="Sylfaen", angle = 53)+
+  annotate("text", label = "რუსეთი", x = 2016.15, y = 320000, size = 3.5, colour = "Black", family="Sylfaen", angle = 60)+
+  annotate("text", label = "აზერბაიჯანი", x = 2010.9, y = 500000, size = 3.5, colour = "Black", family="Sylfaen", angle = 60)
 
 
 fig2 <- ggplot(ExportByHS, aes(Year, Percentage, group=CodeRussia, fill=CodeRussia, color = CodeRussia)) +
@@ -73,7 +74,6 @@ fig2 <- ggplot(ExportByHS, aes(Year, Percentage, group=CodeRussia, fill=CodeRuss
   scale_color_manual(values=c("#808080", "#8a0303"))+
   facet_wrap(vars(HS),  ncol = 6, labeller = label_wrap_gen())+
   labs(caption = "წყარო: საქსტატის საგარეო ვაჭრობის პორტალი|ავტორი: თემურ გუგუშვილი",
-       subtitle ="ექსპორტის სამ სექტორში 25%-ზე მეტია ოკუპირებული რუსეთის მიერ",
        x = "",
        y = "")
 
@@ -81,13 +81,15 @@ fig2 <- ggplot(ExportByHS, aes(Year, Percentage, group=CodeRussia, fill=CodeRuss
 # Save text data in a tibble
 tib_summary_text <- tibble(
   x = 0, 
-  y = c(1.7, 1.5, 1.1, 0.9, 0.5, 0.2), 
-  label = c("<span style = 'color:grey60'> რუსეთ რუსეთის სამხედრო აგრესიის<br>განხორციელების შემდეგ ქვეყნებს შორის<br>ეკონომიკური ურთიერთდამოკიდებულება<br>პოლიტიკური ინსტრუმენტი კიდევ ერთხელ გახდა</span>",
-            "<span style = 'color:grey60'> პოლიტიკური მიზნებისთვის რუსეთი<br>საქართველოდან ექსპორტზე ემბარგოს<br>დაწესების დიდი გამოცდილება აქვს </span>",
-            "<span style = 'color:grey60'> რუსეთ-საქართველოს ომის შემდეგ<br>რუსეთში ექსპორტი მზარდ ტენდენციას<br>ინარჩუნებს (ერთეული:$) </span>",
-            "<span style = 'color:grey60'> საქართველოდან ექსპორტის ყველაზე<br>დიდი მიმღები ჩინეთის შემდეგ<br>რუსეთია (2021 წელი) </span>",
-            "<span style = 'color:grey60'> ექსპორტის ექვსი ყველაზე დიდი<br>მიმართულებიდან სამში რუსეთი<br>25%-ზე მეტს იკავებს (2021 წელი) </span>",
-            "<span style = 'color:grey60'> რუსეთში გაზრდილი ექსპორტი საქართველოს<br>დამოკიდებულს ხდის რუსეთის<br>მიმართვს მოწყვლადს </span>"))
+  y = c(1.81, 1.47, 1.18, 1.04, 0.8, 0.56, 0.34, 0.2), 
+  label = c("<span style = 'color: #DB0D20'> რუსეთ</span>-უკრაინის ომმა კიდევ ერთხელ<br>შეგვახსენა ჩრდილოეთ ბაზარზე ეკონომიკური<br>დამოკიდებულების საფრთხე</span>",
+            "საქართველოს დამოუკიდებლობის მოპოვების<br>შემდეგ, პოლიტიკური მიზნით, <span style = 'color: #DB0D20'>რუსეთში </span><br>არაერთხელ შეიზღუდა ქართული პროდუქციის<br>იმპორტი</span>",
+            "<span style = 'font-size:18.0pt'>თუმცა</span>",
+            "<span style = 'color: #DB0D20'> რუსეთ</span>-საქართველოს ომის შემდეგ<span style = 'color: #DB0D20'> რუსეთში</span><br>ექსპორტი მზარდ ტენდენციას ინარჩუნებს<br>(ერთეული:$) </span>",
+            "საქართველოდან ექსპორტის ყველაზე დიდი<br>მიმღები <span style = 'color:#FFD400'> ჩინეთის</span> შემდეგ<span style = 'color: #DB0D20'> რუსეთია</span> (2021 წელი) </span>",
+            "საქართველოს ექსპორტის ექვსი ყველაზე დიდი<br>მიმართულებიდან სამში <span style = 'color: #DB0D20'> რუსეთი</span> 25%-ზე მეტს<br>იკავებს (2021 წელი) </span>",
+            "<span style = 'font-size:18.0pt'> შედეგად </span>",
+            "<span style = 'color: #DB0D20'> რუსეთში </span> მზარდი ექსპორტი ამცირებს<br>საქართველოს ეკონომიკური და პოლიტიკური<br>დამოუკიდებლობას</span>"))
             
 # Create text plot with geom_richtext() and theme_void()
 text_plot <- tib_summary_text %>% 
@@ -98,18 +100,20 @@ text_plot <- tib_summary_text %>%
     hjust = 0,
     label.padding = unit(c(0.25, 0.25, 0.25, 0.25), "lines"),
     label.margin = unit(c(0, 0, 0, 0), "lines"),
-    label.r = unit(0.3, "lines"),
+    label.r = unit(0.9, "lines"),
     label.colour = NA,
     family = "Sylfaen"
   ) +
   coord_cartesian(xlim = c(0, 1), ylim = c(0, 2), clip = 'off') +
   # clip = 'off' is important for putting it together later.
   theme_void(base_family="Sylfaen")+
-  geom_segment(aes(x = 1, y = 0, xend = 1, yend = 1.98))+
-  geom_segment(aes(x = 0, y = 1.7, xend = 0, yend = 1.98, color = "grey60"))+
-  geom_segment(aes(x = 0, y = 1.4, xend = 0, yend = 1.6, color = "grey60"))+
-  geom_segment(aes(x = 0, y = 1.2, xend = 0, yend = 1.3, color = "grey60"))+
-  geom_segment(aes(x = 0, y = 0.3, xend = 0, yend = 1.1, color = "grey60"))+
+  geom_segment(aes(x = 1, y = 0, xend = 1, yend = 1.92))+
+  geom_segment(aes(x = 0, y = 1.72, xend = 0, yend = 1.92, color = "grey60"))+
+  geom_segment(aes(x = 0, y = 1.35, xend = 0, yend = 1.6, color = "grey60"))+
+  geom_segment(aes(x = 0, y = 0.95, xend = 0, yend = 1.13, color = "grey60"))+
+  geom_segment(aes(x = 0, y = 0.74, xend = 0, yend = 0.87, color = "grey60"))+
+  geom_segment(aes(x = 0, y = 0.48, xend = 0, yend = 0.66, color = "grey60"))+
+  geom_segment(aes(x = 0, y = 0.1, xend = 0, yend = 0.29, color = "grey60"))+
   theme(legend.position = "None")
 
 
